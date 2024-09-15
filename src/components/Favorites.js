@@ -7,7 +7,7 @@ const { SubMenu } = Menu
 
 function Favorites({ favoriteItems }) {
   const [displayDrawer, setDisplayDrawer] = useState(false)
-  const { VIDEO, STREAM, CLIP } = favoriteItems;
+  const { videos, streams, clips } = favoriteItems;
 
   const onDrawerClose = () => {
     setDisplayDrawer(false)
@@ -36,13 +36,13 @@ function Favorites({ favoriteItems }) {
           selectable={false}
         >
           <SubMenu key={'streams'} icon={<EyeOutlined />} title="Streams">
-            <MenuItem items={STREAM} />
+            <MenuItem items={streams} />
           </SubMenu>
           <SubMenu key={'videos'} icon={<YoutubeOutlined />} title="Videos">
-            <MenuItem items={VIDEO} />
+            <MenuItem items={videos} />
           </SubMenu>
           <SubMenu key={'clips'} icon={<VideoCameraOutlined />} title="Clips">
-            <MenuItem items={CLIP} />
+            <MenuItem items={clips} />
           </SubMenu>
         </Menu>
       </Drawer>
