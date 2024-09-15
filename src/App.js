@@ -25,8 +25,9 @@ function App() {
   const [favoriteItems, setFavoriteItems] = useState([]);
 
   const signinOnSuccess = () => {
+    setLoggedIn(true);
     getFavoriteItem().then((data) => {
-      setLoggedIn(true);
+
       setFavoriteItems(data);
     });
   }
