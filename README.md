@@ -97,10 +97,10 @@ twitch-fe-react/
 
 
 **首页:**
-![首页截图](src/assets/images/screenshot/homePage.png)
+![首页截图](src/assets/homePage.png)
 
 **详情页:**
-![详情页截图](src/assets/images/screenshot/detailsPage.pn)
+![详情页截图](src/assets/detailsPage.png)
 
 ## 🤝 如何贡献
 
