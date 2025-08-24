@@ -1,70 +1,123 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# Twitch FE React
 
-### `npm start`
+这是一个使用 React 构建的 Twitch 前端项目，旨在复刻 Twitch.tv 的核心用户界面和功能。项目通过调用 Twitch API 来获取真实的直播、用户和游戏数据，为用户提供一个流畅、响应式的浏览体验。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ 项目特色
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*   **现代化的技术栈**: 使用 React、React Router 和 CSS Modules 构建，保证了代码的可维护性和可扩展性。
+*   **响应式设计**: 无论是桌面、平板还是手机，都能获得一致且友好的用户体验。
+*   **真实数据**: 集成 Twitch API，动态展示热门直播、关注频道和游戏分类。
+*   **组件化开发**: 采用原子设计理念，将 UI 拆分为独立、可复用的组件。
+*   **简洁的导航**: 实现了左侧折叠导航栏和顶部搜索栏，方便用户快速发现内容。
 
-### `npm test`
+## 🚀 快速开始
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+请确保你的电脑上已经安装了 Node.js (>= 16.0.0) 和 npm 或 yarn。
 
-### `npm run build`
+### 1. 克隆项目
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/QuantumBitstream/twitchfe.git
+cd twitch-fe-react
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. 安装依赖
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+使用 npm:
+```bash
+npm install
+```
+或者使用 yarn:
+```bash
+yarn install
+```
 
-### `npm run eject`
+### 3. 配置环境变量
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+为了能成功调用 Twitch API，你需要一个 Twitch 应用的 Client ID 和 App Access Token。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  访问 [Twitch Developers Console](https://dev.twitch.tv/console) 并注册一个新应用。
+2.  获取你的 `Client ID`。
+3.  生成一个 `App Access Token`。
+4.  在项目根目录下创建一个 `.env` 文件，并填入你的凭证：
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```env
+   REACT_APP_TWITCH_CLIENT_ID=你的Client_ID
+   REACT_APP_TWITCH_ACCESS_TOKEN=你的App_Access_Token
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> **注意**: `.env` 文件已被添加到 `.gitignore` 中，以防止你的敏感信息被上传到 Git 仓库。
 
-## Learn More
+### 4. 运行项目
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
+或者
+```bash
+yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+项目将会在 `http://localhost:3000` 上运行。打开浏览器访问该地址即可看到效果。
 
-### Code Splitting
+## 🛠️ 技术栈
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*   **[React](https://reactjs.org/)**: 用于构建用户界面的核心库。
+*   **[React Router](https://reactrouter.com/)**: 处理应用的客户端路由。
+*   **[Axios](https://axios-http.com/)**: 用于发起 HTTP 请求，与 Twitch API 进行交互。
+*   **[CSS Modules](https://github.com/css-modules/css-modules)**: 实现组件级别的 CSS 作用域，避免样式冲突。
+*   **[React Icons](https://react-icons.github.io/react-icons/)**: 提供丰富的 SVG 图标库。
 
-### Analyzing the Bundle Size
+## 📂 项目结构
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+twitch-fe-react/
+├── public/                # 静态资源
+├── src/
+│   ├── api/               # API 请求相关模块 (e.g., twitchApi.js)
+│   ├── assets/            # 图片、字体等资源
+│   ├── components/        # 可复用的UI组件 (e.g., Button, LiveStreamCard)
+│   ├── hooks/             # 自定义 React Hooks
+│   ├── pages/             # 页面级组件 (e.g., Home, Browse, Following)
+│   ├── styles/            # 全局样式和变量
+│   ├── App.js             # 应用根组件
+│   ├── index.js           # 应用入口文件
+│   └── ...
+├── .env                   # 环境变量 (本地)
+├── .gitignore             # Git 忽略文件
+├── package.json           # 项目依赖和脚本
+└── README.md              # 项目说明文档
+```
 
-### Making a Progressive Web App
+## 📸 项目截图
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+**首页:**
+![首页截图](src/assets/images/screenshot/homePage.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**详情页:**
+![详情页截图](src/assets/images/screenshot/detailsPage.pn)
 
-### Deployment
+## 🤝 如何贡献
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+欢迎对这个项目做出贡献！你可以通过以下方式参与：
 
-### `npm run build` fails to minify
+1.  **Fork** 这个仓库。
+2.  创建一个新的分支 (`git checkout -b feature/AmazingFeature`)。
+3.  提交你的代码 (`git commit -m 'Add some AmazingFeature'`)。
+4.  将你的分支推送到远程仓库 (`git push origin feature/AmazingFeature`)。
+5.  提交一个 **Pull Request**。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+请确保你的代码遵循现有的代码风格，并提供清晰的提交信息。
+
+## 📜 开源许可
+
+该项目基于 [Apache 2.0](https://opensource.org/licenses/apache-2-0) 开源。
+
+---
+
+
